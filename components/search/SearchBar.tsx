@@ -66,7 +66,7 @@ export function SearchBar({ className, autoFocus }: SearchBarProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(\`/search?q=\${encodeURIComponent(query.trim())}\`);
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
       setIsOpen(false);
     }
   };
@@ -134,7 +134,7 @@ export function SearchBar({ className, autoFocus }: SearchBarProps) {
               {results.found > 5 && (
                 <button
                   onClick={() => {
-                    router.push(\`/search?q=\${encodeURIComponent(query)}\`);
+                    router.push(`/search?q=${encodeURIComponent(query)}`);
                     setIsOpen(false);
                   }}
                   className="w-full p-2 text-sm text-primary hover:bg-muted transition-colors"

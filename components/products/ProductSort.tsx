@@ -11,9 +11,19 @@ import {
 interface ProductSortProps {
   value: string;
   onChange: (value: string) => void;
+  options?: Array<{
+    value: string;
+    label: string;
+  }>;
 }
 
-export function ProductSort({ value, onChange }: ProductSortProps) {
+export function ProductSort({ value, onChange, options = [
+  { value: "featured", label: "Featured" },
+  { value: "price-low", label: "Price: Low to High" },
+  { value: "price-high", label: "Price: High to Low" },
+  { value: "name-asc", label: "Name: A to Z" },
+  { value: "name-desc", label: "Name: Z to A" },
+] }: ProductSortProps) {
   return (
     <div className="flex items-center gap-2">
       <span className="text-sm font-medium">Sort by:</span>
@@ -22,11 +32,15 @@ export function ProductSort({ value, onChange }: ProductSortProps) {
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="bg-white">
-          <SelectItem value="featured" className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300">Featured</SelectItem>
-          <SelectItem value="price-low" className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300">Price: Low to High</SelectItem>
-          <SelectItem value="price-high" className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300">Price: High to Low</SelectItem>
-          <SelectItem value="name-asc" className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300">Name: A to Z</SelectItem>
-          <SelectItem value="name-desc" className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300">Name: Z to A</SelectItem>
+          {options.map((option) => (
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              className="hover:bg-gray-200 hover:cursor-pointer transition-colors duration-300"
+            >
+              {option.label}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>
