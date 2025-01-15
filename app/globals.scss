@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #fcb017;
+  --secondary-color: #1a1a1a;
+}
+
+@layer base {
+  body {
+    font-family: 'stratum-2-web', sans-serif;
+  }
+  * {
+    font-family: 'stratum-2-web', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'factoria', serif;
+  }
+}
+
+.header-slider {
+  @apply relative h-[340px] sm:h-[470px] md:h-[600px] lg:h-[700px] xl:h-[800px] 2xl:h-[900px] w-full overflow-hidden;
+
+  &__slide {
+    @apply relative w-full;
+
+    video, img {
+      @apply inset-0 h-full w-full object-cover object-center max-h-[900px];
+    }
+
+    &-content {
+      @apply absolute inset-0 flex items-center justify-center text-white;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+
+      h2 {
+        @apply opacity-0 translate-y-4;
+        animation: slideUp 0.8s forwards;
+      }
+
+      p {
+        @apply opacity-0 translate-y-4;
+        animation: slideUp 0.8s 0.2s forwards;
+      }
+
+      a {
+        @apply opacity-0 translate-y-4;
+        animation: slideUp 0.8s 0.4s forwards;
+      }
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Navigation styles
+.nav-dropdown {
+  @apply hidden group-hover:block absolute top-full left-0 bg-white shadow-md py-2 z-50 min-w-[200px];
+  
+  &__item {
+    @apply block px-4 py-2 hover:bg-gray-100 transition-colors duration-200;
+  }
+}
+
+.top-bar {
+  @apply bg-gray-100 text-sm;
+  
+  &__link {
+    @apply hover:text-primary-color transition-colors duration-200;
+  }
+}
+
+.main-bar {
+  @apply bg-white border-b;
+  
+  &__search {
+    @apply relative;
+    
+    input {
+      @apply pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:border-primary-color transition-colors duration-200;
+    }
+  }
+}
+
+.nav-bar {
+  @apply bg-black text-white;
+  
+  &__link {
+    @apply uppercase hover:text-primary-color transition-colors duration-200;
+  }
+  
+  &__catalog-button {
+    @apply uppercase bg-[#E5A853] px-6 py-2 rounded hover:bg-[#E5A853]/90 transition-colors duration-200;
+  }
+}
+
+.footer {
+  @apply bg-secondary-color text-white py-16;
+  
+  &__grid {
+    @apply container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+}
