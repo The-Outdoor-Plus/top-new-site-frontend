@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { mockProducts } from '@/lib/mock/products';
+import { mockProducts } from '@/data/mock-products';
 import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     // Apply special filters
     const special = searchParams.getAll('special[]');
     if (special.includes('onSale')) {
-      filteredProducts = filteredProducts.filter(product => product.isOnSale);
+      filteredProducts = filteredProducts.filter(product => product.onSale);
     }
     if (special.includes('quickShip')) {
       filteredProducts = filteredProducts.filter(product => product.isQuickShip);
@@ -36,28 +36,28 @@ export async function GET(request: NextRequest) {
     const materials = searchParams.getAll('materials[]');
     if (materials.length) {
       filteredProducts = filteredProducts.filter(product =>
-        materials.includes(product.attributes.material || '')
+        materials.includes(product.attributes.material[0] || '')
       );
     }
 
     const sizes = searchParams.getAll('sizes[]');
     if (sizes.length) {
       filteredProducts = filteredProducts.filter(product =>
-        sizes.includes(product.attributes.size || '')
+        sizes.includes(product.attributes.size[0] || '')
       );
     }
 
     const gasTypes = searchParams.getAll('gasTypes[]');
     if (gasTypes.length) {
       filteredProducts = filteredProducts.filter(product =>
-        gasTypes.includes(product.attributes.gasType || '')
+        gasTypes.includes(product.attributes.gasType[0] || '')
       );
     }
 
     const ignitionTypes = searchParams.getAll('ignitionTypes[]');
     if (ignitionTypes.length) {
       filteredProducts = filteredProducts.filter(product =>
-        ignitionTypes.includes(product.attributes.ignitionType || '')
+        ignitionTypes.includes(product.attributes.ignitionType[0] || '')
       );
     }
 

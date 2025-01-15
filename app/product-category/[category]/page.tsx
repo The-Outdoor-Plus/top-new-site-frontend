@@ -2,14 +2,15 @@ import { categories } from "@/data/mock-products";
 import { ProductCategoryView } from "@/components/products/ProductCategoryView";
 import { notFound } from "next/navigation";
 
-interface ProductCategoryPageProps {
-  params: {
-    category: string;
-  };
+interface Props {
+  params: Promise<{ category: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default function ProductCategoryPage({ params }: ProductCategoryPageProps) {
-  const categoryData = categories.find(cat => cat.id === params.category);
+export default async function ProductCategoryPage({ params, searchParams }: Props) {
+  const { category } = await params;
+  const searchParamsData = searchParams ? await searchParams : {};
+  const categoryData = categories.find(cat => cat.id === category);
 
   if (!categoryData) {
     notFound();
@@ -17,7 +18,7 @@ export default function ProductCategoryPage({ params }: ProductCategoryPageProps
 
   return (
     <ProductCategoryView
-      categoryId={params.category}
+      categoryId={category}
       categoryName={categoryData.name}
     />
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { ProductSort } from "@/components/products/ProductSort";
@@ -11,7 +11,16 @@ import { Loader2 } from "lucide-react";
 
 const ITEMS_PER_PAGE = 30;
 
-export default function SearchPage() {
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchPage />
+    </Suspense>
+  );
+}
+
+function SearchPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
@@ -74,7 +83,7 @@ export default function SearchPage() {
           <div>
             <h1 className="text-4xl font-heading font-bold">Search Results</h1>
             <p className="text-muted-foreground mt-2">
-              {searchResults?.found ?? 0} results for "{query}"
+              {searchResults?.found ?? 0} results for &quot;{query}&quot;
             </p>
           </div>
           <ProductSort
