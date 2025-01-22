@@ -97,16 +97,12 @@ export default function MainBar({ onMenuClick }: MainBarProps) {
               <NavigationMenuList className="space-x-4">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger 
-                    onMouseOver={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
                     className="text-black hover:text-primary-color text-base font-normal"
                   >
                     Products
                   </NavigationMenuTrigger>
                   <NavigationMenuContent 
-                    onMouseOver={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
-                    className="bg-white border border-white/20 shadow-lg data-[motion=to-start]:duration-0 data-[motion=to-end]:duration-0"
+                    className="bg-white border border-white/20 shadow-2xl data-[motion=to-start]:duration-0 data-[motion=to-end]:duration-0"
                   >
                     <div className="flex w-[1200px]">
                       <div className="flex-1 p-8">
@@ -119,12 +115,12 @@ export default function MainBar({ onMenuClick }: MainBarProps) {
                               <ul className="space-y-2">
                                 {section.items.map((item) => (
                                   <li key={`${section.title}-${item.title}-${item.href}`}>
-                                    <Link
-                                      href={item.href}
-                                      className="text-blue-600 hover:text-blue-800 text-sm block py-0.5"
+                                      <NavigationMenuLink
+                                        href={item.href}
+                                        className="text-blue-600 hover:text-blue-800 text-sm block py-0.5"
                                     >
                                       {item.title}
-                                    </Link>
+                                    </NavigationMenuLink>
                                   </li>
                                 ))}
                               </ul>
@@ -134,9 +130,9 @@ export default function MainBar({ onMenuClick }: MainBarProps) {
                       </div>
 
                       <div className="w-[300px] bg-gray-100 p-4">
-                        <div className="aspect-[3/4] relative overflow-hidden rounded-lg">
+                        <div className="max-w-[300px] relative overflow-hidden rounded-lg h-[500px]">
                           <Image
-                            src="/images/designer-series.jpg"
+                            src="/images/designer_series_banner.jpg"
                             alt="Designer Series"
                             fill
                             className="object-cover"
