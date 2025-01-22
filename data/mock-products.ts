@@ -25,7 +25,12 @@ export const tags = [
 ];
 
 export const mockProducts: ProductType[] = Array.from({ length: 100 }, (_, i) => ({
-  id: `maya-fire-bowl-${i + 1}`,
+  slug: `del-mar-fire-pit-${i + 1}`,
+  shortName: `Del Mar`,
+  gallery: [],
+  highlights_primary: [],
+  highlights_secondary: [],
+  id: `del-mar-fire-pit-${i + 1}`,
   name: `Del Mar Fire Pit ${i + 1}`,
   partNumber: `OPT-DEL96-${(i + 1).toString().padStart(4, '0')}`,
   image: `/images/del-mar-fire-pit-0.jpg`,

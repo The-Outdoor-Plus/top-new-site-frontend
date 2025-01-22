@@ -16,7 +16,23 @@ export interface ProductType {
   hasPropaneTankDoor: boolean;
   categories: string[];
   tags: string[];
-  attributes: Record<string, string[]>;
+  attributes: Array<{
+    id: string;
+    name: string;
+    type: "select" | "radio" | "color";
+    required: boolean;
+    values: Array<{
+      id: string;
+      name: string;
+      price?: number;
+      inStock?: boolean;
+      leadTime?: string;
+      image?: string;
+      category?: string;
+    }>;
+    description?: string;
+    helpText?: string;
+  }> | Record<string, string[]>;
   specifications?: Array<{
     icon?: string;
     value: string;

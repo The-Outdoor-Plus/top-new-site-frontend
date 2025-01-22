@@ -52,6 +52,7 @@ export async function searchProducts(params: SearchParams): Promise<SearchResult
     }));
 
   return {
+    // @ts-ignore
     hits,
     found: hits.length,
     page,
