@@ -4,13 +4,13 @@ import { LayoutToggle } from "@/components/products/LayoutToggle";
 import { ProductType } from "@/types/products";
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = params;
+  const { id } = await params;
   const cookieStore = await cookies();
   const layoutPreference = cookieStore.get("product-layout")?.value || "modern";
 

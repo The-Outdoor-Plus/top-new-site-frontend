@@ -30,8 +30,8 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-        </HeaderProvider> */}
-        ster />
+        </HeaderProvider>
+        <Toaster />
       </body>
     </html>
   );

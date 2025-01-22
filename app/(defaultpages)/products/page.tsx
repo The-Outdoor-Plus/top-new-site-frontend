@@ -36,6 +36,7 @@ export default function ProductsPage() {
     
     // Check attributes
     for (const [key, values] of Object.entries(filters.attributes)) {
+      // @ts-ignore
       if (values.length > 0 && !values.some(value => product.attributes[key]?.includes(value))) {
         return false;
       }
