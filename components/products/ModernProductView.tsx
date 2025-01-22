@@ -153,7 +153,7 @@ export function ModernProductView({ product }: ModernProductViewProps) {
                                 {key.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
                               </div>
                               <div className="font-medium">
-                                {values.map(v => v.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")).join(", ")}
+                                {values.map((v: string) => v.split("-").map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")).join(", ")}
                               </div>
                             </div>
                           ))}

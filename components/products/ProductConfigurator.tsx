@@ -241,7 +241,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                           </AccordionTrigger>
                           <AccordionContent className="pb-6">
                             <div className="grid grid-cols-1 gap-2">
-                              {values.map((value, index) => (
+                              {values.map((value: string, index: number) => (
                                 <button
                                   key={index}
                                   onClick={() => updateConfiguration(category, value)}
@@ -252,7 +252,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                                       : "border-gray-200"
                                   )}
                                 >
-                                  {value.split("-").map(word => 
+                                  {value.split("-").map((word: string) => 
                                     word.charAt(0).toUpperCase() + word.slice(1)
                                   ).join(" ")}
                                 </button>

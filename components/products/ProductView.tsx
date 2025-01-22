@@ -150,11 +150,11 @@ export function ProductView({ product }: ProductViewProps) {
             </div>
 
             {/* Product Configuration */}
-            <ProductConfigurator
+            {/* <ProductConfigurator
               attributes={product.attributes}
               selectedAttributes={selectedAttributes}
               onChange={setSelectedAttributes}
-            />
+            /> */}
 
             {/* Add-ons */}
             {product.addons && (

@@ -7,13 +7,76 @@ interface ProductLayoutProps {
   layout: "modern" | "classic";
 }
 
+interface Product {
+  id: string;
+  name: string;
+  partNumber: string;
+  shortDescription: string;
+  msrp: number;
+  discountedPrice: number;
+  isOnSale: boolean;
+  isQuickShip: boolean;
+  isBestSeller: boolean;
+  hasCustomOptions: boolean;
+  images: string[];
+  videos: string[];
+  specifications: Array<{
+    category: string;
+    specs: Array<{
+      name: string;
+      value: string;
+    }>;
+  }>;
+  description: string;
+  features: Array<{
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+    image: string;
+  }>;
+  documents: Array<{
+    title: string;
+    url: string;
+  }>;
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+  attributes: Array<{
+    id: string;
+    name: string;
+    type: "select" | "radio" | "color";
+    required: boolean;
+    values: Array<{
+      id: string;
+      name: string;
+      price?: number;
+      inStock?: boolean;
+      leadTime?: string;
+      image?: string;
+      category?: string;
+    }>;
+    description?: string;
+    helpText?: string;
+  }>;
+  addons?: Array<{
+    id: string;
+    name: string;
+    description?: string;
+    price: number;
+    image?: string;
+    recommended?: boolean;
+  }>;
+}
+
 export function ProductLayout({ product, layout }: ProductLayoutProps) {
   if (layout === "modern") {
     return <ModernProductView product={product} />;
   }
 
   // Convert ProductType to the Product interface expected by ProductView
-  const classicProduct = {
+  const classicProduct: Product = {
     id: product.id,
     name: product.name,
     partNumber: product.partNumber,

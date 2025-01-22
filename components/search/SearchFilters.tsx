@@ -46,7 +46,7 @@ export function SearchFilters({ searchResults, onFilterChange }: SearchFiltersPr
           filters.attributes[key] = new Set<string>();
         }
         if (values) {
-          values.forEach(value => filters.attributes[key].add(value));
+          values.forEach((value: string) => filters.attributes[key].add(value));
         }
       });
 
