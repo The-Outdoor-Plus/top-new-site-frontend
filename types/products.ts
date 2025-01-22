@@ -1,6 +1,8 @@
 export interface ProductType {
   id: string;
+  slug: string;
   name: string;
+  shortName: string;
   partNumber: string;
   description?: string;
   image: string;
@@ -19,8 +21,16 @@ export interface ProductType {
     icon?: string;
     value: string;
   }>;
+  gallery: ProductGalleryItem[];
+  highlights_primary: ProductGalleryItem[];
+  highlights_secondary: ProductGalleryItem[];
 }
 
+export interface ProductGalleryItem {
+  image: string;
+  description?: string;
+  title?: string;
+}
 export interface FilterState {
   onSale: boolean;
   quickShip: boolean;
