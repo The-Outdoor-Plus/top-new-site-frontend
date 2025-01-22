@@ -39,25 +39,26 @@ const BlogPostSection: React.FC = () => {
   const posts: BlogPost[] = [
     {
       id: 1,
-      title: "First Blog Post",
-      excerpt: "This is the excerpt for the first blog post.",
-      image: "https://via.placeholder.com/300",
-      slug: "first-blog-post",
+      title: "What is Corten Steel?",
+      excerpt: "COR-TEN® Steel is a high strength steel with a high weathering resistance. COR-TEN® has been a trademarked name used to generalize Weathered Steel. ",
+      image: "/images/what_is_corten_steel.jpg",
+      slug: "what-is-corten-steel",
     },
-    {
+{
       id: 2,
-      title: "Second Blog Post",
-      excerpt: "This is the excerpt for the second blog post.",
-      image: "https://via.placeholder.com/300",
-      slug: "second-blog-post",
+      title: "What is Corten Steel?",
+      excerpt: "COR-TEN® Steel is a high strength steel with a high weathering resistance. COR-TEN® has been a trademarked name used to generalize Weathered Steel. ",
+      image: "/images/what_is_corten_steel.jpg",
+      slug: "what-is-corten-steel",
     },
-    {
+{
       id: 3,
-      title: "Third Blog Post",
-      excerpt: "This is the excerpt for the third blog post.",
-      image: "https://via.placeholder.com/300",
-      slug: "third-blog-post",
+      title: "What is Corten Steel?",
+      excerpt: "COR-TEN® Steel is a high strength steel with a high weathering resistance. COR-TEN® has been a trademarked name used to generalize Weathered Steel. ",
+      image: "/images/what_is_corten_steel.jpg",
+      slug: "what-is-corten-steel",
     },
+    
   ];
 
   return (

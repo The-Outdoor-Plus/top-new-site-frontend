@@ -11,20 +11,20 @@ const firePits: FirePit[] = [
     {
       id: 1,
       title: "Fire Pits",
-      image: "/images/fire-pit-1.jpg",
+      image: "/images/home_firepits.jpg",
       link: "/fire-pits"
     },
     {
       id: 2,
       title: "Outdoor Fireplaces",
-      image: "/images/outdoor-fireplace.jpg",
+      image: "/images/home_fireplaces.jpeg",
       link: "/outdoor-fireplaces"
     },
     {
       id: 3,
-      title: "News",
-      image: "/images/news.jpg",
-      link: "/news"
+      title: "Water Features",
+      image: "/images/home_waterfeatures.jpeg",
+      link: "/water-features"
     },
   ];
 
@@ -44,7 +44,7 @@ const FirePitCard: React.FC<{ firePit: FirePit }> = ({ firePit }) => {
       
       {/* Text overlay */}
       <div className="absolute inset-0 flex items-center justify-center px-4">
-        <h3 className="text-white text-4xl font-extralight tracking-wider transition-all duration-700 group-hover:scale-110">
+        <h3 className="text-white text-4xl font-extralight tracking-wider transition-all duration-700 group-hover:scale-110 text-center">
           {firePit.title}
         </h3>
       </div>
