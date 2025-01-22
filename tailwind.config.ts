@@ -48,10 +48,20 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "appear-50": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "0.5" },
+        },
+        "appear-100": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "appear-50": "appear-50 1s ease-in-out",
+        "appear-100": "appear-100 1s ease-in-out",
       },
     },
   },
